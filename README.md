@@ -84,6 +84,7 @@ Add the following line to SERVICE:
 <h3>Installation and Configuration of NGINX (engineX)</h3>
 
 Install nginx:
+-> Hardening nginx is recommended
 
 	sudo apt install nginx
 
