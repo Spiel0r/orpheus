@@ -1,6 +1,6 @@
 # ORPHEUS - a simple streaming client
 
-<p>The following instruction runs and is tested on a raspberry pi 4
+<p>The following setup runs smooth and is tested on a raspberry pi 4
 <br>The project requires mpd, mpc and nginx</p>
 
 <p>The raspberry pi will play the audio signal from a public streaming url<br>
@@ -117,8 +117,16 @@ Activate the virtual host:
 
 The website will be reachable under ip-from-raspberrypi:81
 
-<h3>Clone the orpheus project from Git</h3>
 
+<h3>Installation and Configuration of MPC Status Website</h3>
+
+Install Python
+
+	sudo apt install python3 python3-pip
+
+Move to the directory where you want to have the script (in the given example it's /home/admin/orpheus)
+
+Clone the orpheus project from Git
 
 	git clone https://github.com/Spiel0r/orpheus.git
 
