@@ -6,23 +6,22 @@ the project requires mpd, mpc and nginx
 The raspberry pi will play the audio signal from a public streaming url
 A simple status overview is indicated on a web site
 
-########################################################################
-########################################################################
+<br>
 Install Raspberry Pi OS using the Raspberry Pi Imager or Balena Etcher
 
 Connect via ssh
 -> hardening the access via ssh-key is recommended
 
-Update the Software
+Update your raspberry:
 
 	sudo apt-get update
 	sudo apt-get upgrade
 
-Install MPD and MPC
+Install MPD and MPC:
 	
 	sudo apt install mpd mpc
 
-Configure output in mpd.conf
+Configure the audio output in the mpd.conf - Config file:
 	
 	sudo nano /etc/mpd.conf 
 
@@ -37,45 +36,47 @@ Configure output in mpd.conf
 	}
 	
 
-Create the Playlist File.m3u
+Create the Playlist File.m3u:
+
 	sudo nano /var/lib/mpd/playlists/playlist_name.m3u
 
-
-	Inhalt der Datei:
+Write the following code into the file:
+	
 	#EXTM3U
 	#EXTINF:-1, "Playlist Name"
-	http://0008E1087ACE:0008E1087ACE@roomvibes2.com/V1026.mp3
+	http://0008E1087ACE:0008E1087ACE@playlist.com/V1026.mp3
 	
-
 Alsa Config:
-Source:
-https://strobelstefan.de/blog/2021/01/22/raspberry-pi-musik-auf-der-stereoanlage-wiedergeben/#npcm-client-fur-die-konsole
+Source: https://strobelstefan.de/blog/2021/01/22/raspberry-pi-musik-auf-der-stereoanlage-wiedergeben/#npcm-client-fur-die-konsole
 
 	sudo modprobe snd_bcm2835
 	sudo alsamixer cset numid=3 1
 
 Activate and start the service
 
-  sudo systemctl enable mpd
-  sudo systemctl start mpd
+  	sudo systemctl enable mpd
+	sudo systemctl start mpd
 
 
-Load the playlist
-	mpc load martinauerroomvibes
+Load the playlist:
 
-Start the player
+	mpc load playlist_name
+
+Start the player:
 
 	mpc play
 
-If you are using Wifi, the wifi connection has to be established before the stream starts otherwhise it will run into an error
-therefore if delayed the start of the mpd.service for 30sec
+If you are using Wifi, the wifi connection has to be established before the stream starts otherwhise it will run into an error 'cause the url cannot be resolved (no internet connection)
+therefore i've delayed the start of the mpd.service for 30sec
+
+Edit the mpd.service - Service file:
 
 	sudo nano /lib/systemd/system/mpd.service
 	
-	SERVICE um folgende Zeile ergänzt
+Add the following line to SERVICE
+
 	ExecStartPre=/bin/sleep 30
-![image](https://github.com/Spiel0r/orpheus/assets/168893268/e8be7465-f65e-4b57-91c9-74317d77a5d7)
 
 
-ToDo:
+ToDo for me:
 Write instruction for nginx website and python mpc status update script
