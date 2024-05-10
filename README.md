@@ -134,8 +134,7 @@ Clone the orpheus project from Git
 
 	sudo crontab -e
 
-The line says execute the python script every minute.
-It will be executed every minute and adds the date of execution as well as the output of the script into a log file:
+The script will be executed every minute and writes the date of execution as well as the output of the script into a log file:
 
  	* * * * * echo "$(date) - Ausführung von mpc_status.py" >> /home/admin/orpheus/mpc_status.log && /usr/bin/python3 /home/admin/orpheus/mpc_status.py >> /home/admin/orpheus/mpc_status.log 2>&1
 
