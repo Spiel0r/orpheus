@@ -1,4 +1,4 @@
-# orpheus is a simple streaming client
+# ORPHEUS - a simple streaming client
 
 the following instruction runs and is tested on a raspberry pi 4
 the project requires mpd, mpc and nginx
