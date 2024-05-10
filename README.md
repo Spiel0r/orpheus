@@ -1,13 +1,16 @@
 # ORPHEUS - a simple streaming client
 
 <p>The following setup runs smooth and is tested on a raspberry pi 4 (it will also work on a raspberry pi 3 and 5)
-<br>In the current state the software has to be installed and configured manually
-<br>an automatic installation with a single script is planned</p>
-
-<p>The raspberry pi will play the audio signal from a public streaming url<br>
-A simple status overview is indicated on a web site</p>
 <br>
-<p>Install Raspberry Pi OS using the Raspberry Pi Imager or Balena Etcher</p>
+<p>The raspberry pi will play the audio signal from a public streaming url
+<br>A simple status overview is indicated on a web site<br>
+<br>In the current state the software has to be installed and configured manually.
+<br>An automatic installation with a single script is planned</p>
+
+<br>
+
+<h2>Instruction</h2>
+<p>Install Raspberry Pi OS Lite 64bit using the Raspberry Pi Imager or Balena Etcher</p>
 
 Connect via ssh
 -> hardening the access via ssh-key is recommended
