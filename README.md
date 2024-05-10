@@ -1,13 +1,12 @@
 # ORPHEUS - a simple streaming client
 
-the following instruction runs and is tested on a raspberry pi 4
-the project requires mpd, mpc and nginx
+<p>The following instruction runs and is tested on a raspberry pi 4
+<br>The project requires mpd, mpc and nginx</p>
 
-The raspberry pi will play the audio signal from a public streaming url
-A simple status overview is indicated on a web site
-
+<p>The raspberry pi will play the audio signal from a public streaming url<br>
+A simple status overview is indicated on a web site</p>
 <br>
-Install Raspberry Pi OS using the Raspberry Pi Imager or Balena Etcher
+<p>Install Raspberry Pi OS using the Raspberry Pi Imager or Balena Etcher</p>
 
 Connect via ssh
 -> hardening the access via ssh-key is recommended
@@ -46,7 +45,7 @@ Write the following code into the file:
 	#EXTINF:-1, "Playlist Name"
 	http://0008E1087ACE:0008E1087ACE@playlist.com/V1026.mp3
 	
-Alsa Config:
+Alsa Config:<br>
 Source: https://strobelstefan.de/blog/2021/01/22/raspberry-pi-musik-auf-der-stereoanlage-wiedergeben/#npcm-client-fur-die-konsole
 
 	sudo modprobe snd_bcm2835
