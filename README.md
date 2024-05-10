@@ -1,6 +1,6 @@
 # ORPHEUS - a simple streaming client
 
-<p>The following setup runs smooth and is tested on a raspberry pi 4
+<p>The following setup runs smooth and is tested on a raspberry pi 4 (it will also work on a raspberry pi 3 and 5)
 <br>The project requires mpd, mpc and nginx</p>
 
 <p>The raspberry pi will play the audio signal from a public streaming url<br>
