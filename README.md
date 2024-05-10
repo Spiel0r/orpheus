@@ -120,7 +120,16 @@ The website will be reachable under ip-from-raspberrypi:81
 <h3>Clone the orpheus project from Git</h3>
 
 
+	git clone https://github.com/Spiel0r/orpheus.git
 
-ToDo for me:
-python mpc status update script
-crontab content (restart and execution of the script
+ Add the python script to the crontab - file
+
+	sudo crontab -e
+
+The line says execute the python script every minute.
+It will be executed every minute and adds the date of execution as well as the output of the script into a log file:
+
+ 	* * * * * echo "$(date) - Ausführung von mpc_status.py" >> /home/admin/orpheus/mpc_status.log && /usr/bin/python3 /home/admin/orpheus/mpc_status.py >> /home/admin/orpheus/mpc_status.log 2>&1
+
+The python script does the following:
+It will print the output of "mpc status" and "systemctl status mpd" as well as the current date into a generated index.html file which will be accessible via web browser
