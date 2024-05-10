@@ -16,6 +16,7 @@ Update your raspberry:
 	sudo apt-get update
 	sudo apt-get upgrade
 
+<h3>Installlation and Configuration of MPD, MPC</h3>
 Install MPD and MPC:
 	
 	sudo apt install mpd mpc
@@ -51,11 +52,10 @@ Source: https://strobelstefan.de/blog/2021/01/22/raspberry-pi-musik-auf-der-ster
 	sudo modprobe snd_bcm2835
 	sudo alsamixer cset numid=3 1
 
-Activate and start the service
+Activate and start the service:
 
   	sudo systemctl enable mpd
 	sudo systemctl start mpd
-
 
 Load the playlist:
 
@@ -65,6 +65,7 @@ Start the player:
 
 	mpc play
 
+<h3>Note:</h3>
 If you are using Wifi, the wifi connection has to be established before the stream starts otherwhise it will run into an error 'cause the url cannot be resolved (no internet connection)
 therefore i've delayed the start of the mpd.service for 30sec
 
@@ -72,10 +73,54 @@ Edit the mpd.service - Service file:
 
 	sudo nano /lib/systemd/system/mpd.service
 	
-Add the following line to SERVICE
+Add the following line to SERVICE:
 
 	ExecStartPre=/bin/sleep 30
 
+<h3>Installation and Configuration of NGINX (engineX)</h3>
+
+Install nginx:
+
+	sudo apt install nginx
+
+Creating the website:
+
+	cd /var/www
+	sudo mkdir orpheus
+	cd orpheus
+	sudo nano index.html
+
+Setting up the virtual host:
+
+ 	cd /etc/nginx/sites-enabled
+	sudo nano orpheus
+
+Content of the newly created file:
+
+	server {
+       		listen 81;
+       		listen [::]:81;
+
+		server_name localhost;
+
+       		root /var/www/orpheus;
+       		index index.html;
+
+	       location / {
+        	       try_files $uri $uri/ =404;
+       		}
+	 }
+
+Activate the virtual host:
+
+	sudo service nginx restart
+
+The website will be reachable under ip-from-raspberrypi:81
+
+<h3>Clone the orpheus project from Git</h3>
+
+
 
 ToDo for me:
-Write instruction for nginx website and python mpc status update script
+python mpc status update script
+crontab content (restart and execution of the script
